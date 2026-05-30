@@ -16,20 +16,28 @@ document.querySelector('#app').innerHTML = `
       </div>
 
       <script>
-        document.querySelectorAll('.top-bar a[href^="#"]').forEach(anchor => {
-          anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-              const viewportHeight = window.innerHeight;
-              const targetRect = target.getBoundingClientRect();
-              const targetTop = targetRect.top + window.scrollY;
-              const scrollPosition = targetTop - (viewportHeight / 2) + (targetRect.height / 2);
-              
-              window.scrollTo({
-                top: scrollPosition,
-                behavior: 'smooth'
-              });
+        // Custom tab focus border logic
+        const tabButtons = document.querySelectorAll('.top-bar .glow-btn');
+        tabButtons.forEach(btn => {
+          btn.addEventListener('click', function(e) {
+            // Remove border from all buttons
+            tabButtons.forEach(b => b.classList.remove('active-tab'));
+            // Add border to clicked button
+            this.classList.add('active-tab');
+            // Smooth scroll for anchor links
+            if (this.tagName === 'A' && this.getAttribute('href').startsWith('#')) {
+              e.preventDefault();
+              const target = document.querySelector(this.getAttribute('href'));
+              if (target) {
+                const viewportHeight = window.innerHeight;
+                const targetRect = target.getBoundingClientRect();
+                const targetTop = targetRect.top + window.scrollY;
+                const scrollPosition = targetTop - (viewportHeight / 2) + (targetRect.height / 2);
+                window.scrollTo({
+                  top: scrollPosition,
+                  behavior: 'smooth'
+                });
+              }
             }
           });
         });
@@ -50,26 +58,36 @@ document.querySelector('#app').innerHTML = `
           <p>We partner with leading delivery platforms to provide reliable and efficient delivery solutions. Our team of trained delivery partners ensures timely service with a strong focus on operational efficiency. Whether it's food, parcels, or last-mile logistics, we streamline the process to help businesses meet customer expectations every time.</p>
         </div>
       </section>
-      <section id="about" class="section">
-        <img class="main-img" src="https://via.placeholder.com/320x180?text=About+Us" alt="About Us placeholder" />
-        <h2>About Us</h2>
-        <p>We are a dynamic company operating at the intersection of technology and logistics. With a dedicated team of around 15 experts in PLM and software development, and over 23 professionals in logistics operations, we bring together innovation and efficiency. Our mission is to deliver smart solutions that drive business success, whether it’s through advanced PLM automation or reliable delivery services.</p>
+      <section id="about" class="section section-row">
+        <img class="main-img section-img-left" src="/images/aboutus.PNG" alt="About Us" />
+        <div class="section-text">
+          <h2>About Us</h2>
+          <p>We are a dynamic company operating at the intersection of technology and logistics. With a dedicated team of around 15 experts in PLM and software development, and over 23 professionals in logistics operations, we bring together innovation and efficiency. Our mission is to deliver smart solutions that drive business success, whether it's through advanced PLM automation or reliable delivery services.</p>
+        </div>
       </section>
       <section id="portfolio" class="section">
-        <img class="main-img" src="https://via.placeholder.com/320x180?text=Portfolio" alt="Portfolio placeholder" />
-        <h2>Portfolio</h2>
-        <ul>
-          <li><strong>PLM Automation for Manufacturing:</strong> Developed custom Teamcenter workflows that boosted product development speed by 30%.</li>
-          <li><strong>NX Customization for CAD Efficiency:</strong> Delivered projects involving NX PMIs, TechMate, UDU, and UDF customization to streamline design processes.</li>
-          <li><strong>Teamcenter Solutions:</strong> Implemented various Teamcenter projects including workflow automation, user application creation, ITK programming, and custom dataset management.</li>
-          <li><strong>Logistics Partnership with Food Delivery:</strong> Managed a network of delivery partners to ensure timely, reliable food deliveries for a major platform.</li>
-        </ul>
+        <div class="section-row" style="display: flex; flex-direction: row; align-items: center; gap: 20px;">
+          <img class="main-img section-img-left" src="/images/PF.jpeg" alt="Portfolio" style="width: 40%; max-width: 400px; height: auto; aspect-ratio: 1; object-fit: contain; margin-left: 10px; margin-right: 0; flex-shrink: 0;" />
+          <div class="section-text" style="flex: 1; min-width: 300px; text-align: left; padding-right: 0; margin-right: 10px;">
+            <h2>Portfolio</h2>
+            <ul>
+              <li><strong>PLM Automation for Manufacturing:</strong> Developed custom Teamcenter workflows that boosted product development speed by 30%.</li>
+              <li><strong>NX Customization for CAD Efficiency:</strong> Delivered projects involving NX PMIs, TechMate, UDU, and UDF customization to streamline design processes.</li>
+              <li><strong>Teamcenter Solutions:</strong> Implemented various Teamcenter projects including workflow automation, user application creation, ITK programming, and custom dataset management.</li>
+              <li><strong>Logistics Partnership with Food Delivery:</strong> Managed a network of delivery partners to ensure timely, reliable food deliveries for a major platform.</li>
+            </ul>
+          </div>
+        </div>
       </section>
       <section id="contact" class="section">
-        <img class="main-img" src="https://via.placeholder.com/320x180?text=Contact" alt="Contact placeholder" />
-        <h2>Contact</h2>
-        <p>We’d love to hear from you! For inquiries, partnerships, or project discussions, please reach out to us at:<br>
-        📧 <a href="mailto:info@plmadvisor.com">info@plmadvisor.com</a></p>
+        <div class="section-row" style="display: flex; flex-direction: row; align-items: center; gap: 20px;">
+          <img class="main-img section-img-left" src="/images/contact us.jpg" alt="Contact Us" style="width: 40%; max-width: 400px; height: auto; aspect-ratio: 1; object-fit: contain; margin-left: 10px; margin-right: 0; flex-shrink: 0;" />
+          <div class="section-text" style="flex: 1; min-width: 300px; text-align: left; padding-right: 0; margin-right: 10px;">
+            <h2>Contact</h2>
+            <p>We’d love to hear from you! For inquiries, partnerships, or project discussions, please reach out to us at:<br>
+            📧 <a href="mailto:plmadvisor@gmail.com">plmadvisor@gmail.com</a></p>
+          </div>
+        </div>
       </section>
 
       <div class="bottom-image" id="yt-image-anchor">

@@ -1,3 +1,35 @@
+/* Persistent white border for last clicked tab button */
+.glow-btn.active-tab {
+  outline: 3px solid #fff !important;
+  outline-offset: 2px;
+}
+/* Show white border on focus for all glow buttons */
+.glow-btn:focus,
+.glow-btn:focus-visible {
+  outline: 3px solid #fff !important;
+  outline-offset: 2px;
+}
+/* Add focus border to all glow buttons */
+.glow-btn:focus,
+.glow-btn:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+  outline-offset: 2px;
+}
+#about .section-text {
+  flex: 1;
+  min-width: 200px;
+  text-align: left;
+  padding: 16px;
+  margin-right: 10px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 700px) {
+  #about .section-text {
+    min-width: 0;
+    padding: 8px;
+  }
+}
 /* Distinct font for Services section subheadings */
 #services .section-text h3 {
   font-family: 'Segoe UI', 'Arial Black', Arial, sans-serif;
@@ -53,7 +85,7 @@ html, body, .main-container {
 
 /* Add spacing between Contact Us section and bottom image */
 .bottom-image {
-  margin-top: 100vh;
+  margin-top: 48px;
   text-align: center;
 }
 
@@ -99,8 +131,8 @@ html {
 /* Fully responsive section layout */
 .section {
   width: 100%;
-  min-height: 100vh;
-  padding: 0 40px;
+  min-height: 50vh;
+  padding: 0 16px;
   background: rgba(255,255,255,0.08);
   border-radius: 2vw;
   box-shadow: 0 4px 24px 0 rgba(0,0,0,0.08);
@@ -116,7 +148,7 @@ html {
 }
 
 .section + .section {
-  margin-top: 0;
+  margin-top: 64px;
 }
 
 @media (max-width: 600px) {
@@ -215,14 +247,16 @@ html {
   max-height: none;
 }
 
-#services .main-img {
+#services .main-img,
+#about .main-img,
+.section-img-right {
   width: 40%;
   max-width: 400px;
   height: auto;
   aspect-ratio: 1;
   object-fit: contain;
-  margin-right: 40px;
-  margin-left: 0;
+  margin-left: 32px;
+  margin-right: 0;
   flex-shrink: 0;
 }
 
@@ -230,7 +264,17 @@ html {
   flex: 1;
   min-width: 300px;
   text-align: left;
-  padding-left: 20px;
+  padding-right: 0;
+  margin-right: 10px;
+  margin-left: 40px;
+}
+
+#about.section-row {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 0;
 }
 
 @media (max-width: 900px) {
@@ -294,6 +338,15 @@ html {
   box-shadow: 0 0 32px 8px rgba(0, 123, 255, 0.7), 0 0 64px 16px rgba(0, 123, 255, 0.4);
   background: rgba(0, 123, 255, 0.2);
   color: #fff;
+}
+
+/* Remove glow on focus for all .glow-btn except YouTube button */
+.glow-btn:focus {
+  box-shadow: none !important;
+}
+
+#yt-channel-btn.glow-btn:focus {
+  box-shadow: 0 0 32px 8px rgba(0, 123, 255, 0.7), 0 0 64px 16px rgba(0, 123, 255, 0.4);
 }
 
 .glow-btn:active {
