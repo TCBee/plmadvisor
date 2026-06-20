@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5173)",
+      "Bash(npx --yes playwright screenshot http://localhost:5173 /tmp/page.png --wait-for-timeout 2000)",
+      "Read(//c/Users/stuff/AppData/Local/Temp/**)",
+      "Bash(code --open-url http://localhost:5173)"
+    ]
+  }
+}
