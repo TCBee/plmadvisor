@@ -8,6 +8,10 @@
       <feGaussianBlur stdDeviation="2.5" result="b"/>
       <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
+    <filter id="textglow" x="-30%" y="-60%" width="160%" height="220%">
+      <feGaussianBlur stdDeviation="3" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
   </defs>
 
   <!-- Wireframe cube — solid visible edges -->
@@ -22,5 +26,5 @@
   <line x1="10" y1="46" x2="35" y2="33" stroke="rgba(34,211,238,0.15)" stroke-width="1" stroke-dasharray="3 3"/>
 
   <!-- Wordmark -->
-  <text x="74" y="43" font-family="Outfit,sans-serif" font-weight="600" font-size="22" fill="white" letter-spacing="3">PLM <tspan fill="url(#gc)" font-weight="500">Advisor</tspan></text>
+  <text x="74" y="43" font-family="Outfit,sans-serif" font-weight="600" font-size="22" fill="white" letter-spacing="3">PLM <tspan fill="url(#gc)" font-weight="500" filter="url(#textglow)">Advisor</tspan></text>
 </svg>
