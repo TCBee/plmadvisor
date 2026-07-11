@@ -135,7 +135,7 @@ body::after {
 }
 .nav-logo:hover { opacity: 0.82; }
 .nav-logo-img {
-  height: 36px;
+  height: 70px;
   width: auto;
   display: block;
 }
