@@ -205,26 +205,47 @@ document.querySelector('#app').innerHTML = `
         <h2>Start a Conversation</h2>
         <p class="section-sub">Tell us about your project — we'll get back to you within 24 hours.</p>
       </div>
-      <form class="contact-form reveal" id="contact-form">
-        <div class="form-row">
-          <div class="form-field">
-            <label for="cf-name">Your Name</label>
-            <input id="cf-name" type="text" name="name" placeholder="John Smith" required />
+      <div class="contact-body">
+        <form class="contact-form reveal" id="contact-form">
+          <div class="form-row">
+            <div class="form-field">
+              <label for="cf-name">Your Name</label>
+              <input id="cf-name" type="text" name="name" placeholder="John Smith" required />
+            </div>
+            <div class="form-field">
+              <label for="cf-email">Email Address</label>
+              <input id="cf-email" type="email" name="email" placeholder="john@company.com" required />
+            </div>
           </div>
           <div class="form-field">
-            <label for="cf-email">Email Address</label>
-            <input id="cf-email" type="email" name="email" placeholder="john@company.com" required />
+            <label for="cf-msg">Message</label>
+            <textarea id="cf-msg" name="message" rows="5" placeholder="Tell us about your project, timeline, and goals..." required></textarea>
+          </div>
+          <div class="form-footer">
+            <button type="submit" class="btn-primary form-btn">Send Message</button>
+            <p class="contact-direct">Or email us at <a href="mailto:plmadvisor@gmail.com">plmadvisor@gmail.com</a></p>
+          </div>
+        </form>
+
+        <div class="map-card reveal">
+          <div class="map-info">
+            <div class="section-tag" style="margin-bottom:12px">Our Location</div>
+            <h3 class="map-address">Humboldtstraße 12<br>63071 Offenbach am Main<br>Germany</h3>
+            <a href="https://maps.app.goo.gl/ofRg9hhR28uEjNzPA" target="_blank" rel="noopener" class="map-directions">
+              Get Directions ↗
+            </a>
+          </div>
+          <div class="map-embed">
+            <iframe
+              src="https://maps.google.com/maps?q=Humboldtstra%C3%9Fe+12,+63071+Offenbach+am+Main,+Germany&output=embed&z=16"
+              width="100%" height="100%"
+              style="border:0;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="PLM Advisor Office Location">
+            </iframe>
           </div>
         </div>
-        <div class="form-field">
-          <label for="cf-msg">Message</label>
-          <textarea id="cf-msg" name="message" rows="5" placeholder="Tell us about your project, timeline, and goals..." required></textarea>
-        </div>
-        <div class="form-footer">
-          <button type="submit" class="btn-primary form-btn">Send Message</button>
-          <p class="contact-direct">Or email us at <a href="mailto:plmadvisor@gmail.com">plmadvisor@gmail.com</a></p>
-        </div>
-      </form>
+      </div>
     </div>
   </section>
 
