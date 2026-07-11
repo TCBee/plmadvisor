@@ -10,7 +10,9 @@ document.querySelector('#app').innerHTML = `
   <!-- NAV -->
   <header class="nav" id="nav">
     <div class="nav-inner">
-      <a href="#home" class="nav-logo">PLM<span>Advisor</span></a>
+      <a href="#home" class="nav-logo">
+        <img src="/logo.svg" alt="PLM Advisor" class="nav-logo-img" />
+      </a>
       <nav class="nav-links" id="nav-links">
         <a href="#services" class="nav-link">Services</a>
         <a href="#about"    class="nav-link">About</a>
@@ -270,7 +272,9 @@ document.querySelector('#app').innerHTML = `
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container footer-inner">
-      <a href="#home" class="nav-logo">PLM<span>Advisor</span></a>
+      <a href="#home" class="nav-logo">
+        <img src="/logo.svg" alt="PLM Advisor" class="nav-logo-img" style="height:28px" />
+      </a>
       <p class="footer-copy">© ${new Date().getFullYear()} PLM Advisor. All rights reserved.</p>
       <div class="footer-links">
         <a href="https://youtube.com/@nxcoder?feature=shared" target="_blank" rel="noopener">YouTube</a>
