@@ -803,27 +803,80 @@ body::after {
   .metric-div     { display: none; }
 }
 
+/* ─── Mobile: strip backdrop-filter entirely (too heavy on mobile GPUs) ─── */
 @media (max-width: 768px) {
-  .nav-toggle { display: flex; }
+  /* Nav toggle must sit above everything */
+  .nav-toggle {
+    display: flex;
+    position: relative;
+    z-index: 1100;
+  }
+
+  /* Solid nav bar — no blur */
+  .nav {
+    background: rgba(5, 8, 24, 0.97) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
   .nav-links {
     position: fixed;
     top: var(--nav-h);
     left: 0; right: 0;
-    background: rgba(5, 8, 24, 0.80);
-    backdrop-filter: blur(28px) saturate(160%);
+    z-index: 1050;
+    /* Solid background — no blur */
+    background: rgba(5, 8, 24, 0.97);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
     flex-direction: column;
     padding: 20px 24px 28px;
     gap: 4px;
-    border-bottom: 1px solid var(--glass-b);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
     transform: translateY(-110%);
     opacity: 0;
+    pointer-events: none;
     transition: transform 0.3s ease, opacity 0.3s ease;
   }
-  .nav-links.open { transform: none; opacity: 1; }
+  .nav-links.open {
+    transform: none;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
   .nav-link, .nav-yt { width: 100%; padding: 10px 14px; margin: 0; }
+
+  /* Remove blur from all glass cards on mobile */
+  .service-card,
+  .stat-card,
+  .portfolio-card,
+  .contact-form,
+  .map-card,
+  .yt-card,
+  .hero-metrics,
+  .hero-badge,
+  .btn-ghost,
+  .nav-yt,
+  .section-tag,
+  .portfolio-tag,
+  .footer {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  /* Compensate with slightly more opaque backgrounds */
+  .service-card    { background: rgba(255,255,255,0.07); }
+  .stat-card       { background: rgba(255,255,255,0.07); }
+  .portfolio-card  { background: rgba(255,255,255,0.07); }
+  .contact-form    { background: rgba(10,14,36,0.92); padding: 24px; }
+  .map-card        { background: rgba(10,14,36,0.92); }
+  .yt-card         { background: rgba(10,14,36,0.92); padding: 28px 20px; }
+  .hero-metrics    { background: rgba(255,255,255,0.06); }
+  .footer          { background: rgba(5,8,24,0.97); }
+
+  /* Disable heavy orb blur on mobile */
+  .orb { filter: blur(40px); opacity: 0.35; }
+
   .form-row { grid-template-columns: 1fr; }
-  .contact-form { padding: 24px; }
-  .yt-card { padding: 28px 20px; }
   .footer-inner { flex-direction: column; text-align: center; }
 }
 
